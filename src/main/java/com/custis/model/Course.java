@@ -11,6 +11,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.time.ZonedDateTime;
 import java.util.Set;
 
 @Entity
@@ -27,6 +28,15 @@ public class Course {
 
     @Column(name = "limit")
     private Integer limit;
+
+    @Column(name = "start")
+    private ZonedDateTime start;
+
+    @Column(name = "end")
+    private ZonedDateTime end;
+
+    @Column(name = "isAvailable")
+    private Boolean isAvailable;
 
     @ManyToMany
     @JoinTable(

@@ -3,6 +3,10 @@ package com.custis.repository;
 import com.custis.model.Enrollment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
+import java.util.List;
 
+public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
+    List<Enrollment> findByStudentId(Long studentId);
+
+    List<Enrollment> findByCourseId(Long courseId);
 }
