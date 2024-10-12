@@ -24,7 +24,7 @@ public class CourseService {
 
     public CourseDto getCourseById(Long id) {
         return courseMapper.toCourseDto(courseRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Course with id " + id + "not found.")));
+                .orElseThrow(() -> new NotFoundException("Course with id=" + id + "not found.")));
     }
 
     public List<CourseDto> getAllCourses() {

@@ -2,6 +2,7 @@ package com.custis.controller;
 
 import com.custis.dto.CourseDto;
 import com.custis.service.CourseService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class CourseController {
     private final CourseService service;
 
     @PostMapping
-    public ResponseEntity<CourseDto> addCourse(@RequestBody CourseDto courseDto) {
+    public ResponseEntity<CourseDto> addCourse(@RequestBody @Valid CourseDto courseDto) {
         return ResponseEntity.ok().body(service.addCourse(courseDto));
     }
 
@@ -51,7 +52,7 @@ public class CourseController {
     }
 
     @PatchMapping("/{courseId}")
-    public ResponseEntity<CourseDto> patchCourse(@RequestBody CourseDto patchedCourse,
+    public ResponseEntity<CourseDto> patchCourse(@RequestBody @Valid CourseDto patchedCourse,
                                                  @PathVariable Long courseId) {
         return ResponseEntity.ok().body(service.patchCourse(patchedCourse, courseId));
     }
