@@ -18,6 +18,4 @@ public class StudentDto {
 
     @Email(message = "Incorrect email")
     private String email;
-
-    private Set<CourseDto> courses;
 }

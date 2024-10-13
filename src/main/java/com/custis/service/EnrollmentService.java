@@ -5,6 +5,7 @@ import com.custis.dto.mapper.EnrollmentMapper;
 import com.custis.exception.BadRequestException;
 import com.custis.exception.NotFoundException;
 import com.custis.model.Course;
+import com.custis.model.Student;
 import com.custis.repository.CourseRepository;
 import com.custis.repository.EnrollmentRepository;
 import com.custis.repository.StudentRepository;
@@ -23,7 +24,7 @@ public class EnrollmentService {
 
     @Transactional
     public EnrollmentDto addEnrollment(EnrollmentDto enrollmentDto) {
-        studentRepository.findById(enrollmentDto.getStudentId())
+        Student student = studentRepository.findById(enrollmentDto.getStudentId())
                 .orElseThrow(() -> new NotFoundException("Student with id=" + enrollmentDto.getStudentId() + "not found"));
         Course course = courseRepository.findById(enrollmentDto.getCourseId())
                 .orElseThrow(() -> new NotFoundException("Course with id=" + enrollmentDto.getCourseId() + "not found"));
@@ -37,6 +38,10 @@ public class EnrollmentService {
             course.setIsAvailable(false);
             courseRepository.save(course);
         }
+        student.getCourses().add(course);
+        studentRepository.save(student);
+        course.getStudents().add(student);
+        courseRepository.save(course);
         return mapper.toEnrollmentDto(enrollmentRepository.save(mapper.toEnrollment(enrollmentDto)));
     }
 }
