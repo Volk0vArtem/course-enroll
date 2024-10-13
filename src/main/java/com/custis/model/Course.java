@@ -26,16 +26,16 @@ public class Course {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "limit")
+    @Column(name = "students_limit")
     private Integer limit;
 
-    @Column(name = "start")
+    @Column(name = "start_time")
     private ZonedDateTime start;
 
-    @Column(name = "end")
+    @Column(name = "end_time")
     private ZonedDateTime end;
 
-    @Column(name = "isAvailable")
+    @Column(name = "is_available")
     private Boolean isAvailable;
 
     @ManyToMany

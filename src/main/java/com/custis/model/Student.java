@@ -21,6 +21,7 @@ public class Student {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "email")
     private String email;
 
     @ManyToMany(mappedBy = "students")
