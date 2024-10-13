@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<StudentDto> addStudent(@RequestBody @Valid StudentDto studentDto) {
-        return ResponseEntity.ok().body(service.addStudent(studentDto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.addStudent(studentDto));
     }
 
     @GetMapping("/{studentId}")
@@ -35,18 +34,19 @@ public class StudentController {
     }
 
     @GetMapping
-    public ResponseEntity<List<StudentDto>> getStudentById() {
+    public ResponseEntity<List<StudentDto>> getAllStudents() {
         return ResponseEntity.ok().body(service.getAllStudents());
     }
 
     @DeleteMapping("/{studentId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteStudent(@PathVariable Long studentId) {
+    public ResponseEntity<Void> deleteStudent(@PathVariable Long studentId) {
         service.deleteStudent(studentId);
+        return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<StudentDto> patchStudent(@RequestBody StudentDto studentDto, @PathVariable Long id) {
+    public ResponseEntity<StudentDto> patchStudent(@RequestBody @Valid StudentDto studentDto,
+                                                   @PathVariable Long id) {
         return ResponseEntity.ok().body(service.patchStudent(studentDto, id));
     }
 }

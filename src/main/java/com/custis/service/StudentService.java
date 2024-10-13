@@ -5,6 +5,7 @@ import com.custis.dto.mapper.StudentMapper;
 import com.custis.exception.NotFoundException;
 import com.custis.model.Student;
 import com.custis.repository.StudentRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ public class StudentService {
     private final StudentMapper studentMapper;
     private final StudentRepository studentRepository;
 
+    @Transactional
     public StudentDto addStudent(StudentDto studentDto) {
         return studentMapper.toStudentDto(studentRepository.save(studentMapper.toStudent(studentDto)));
     }
@@ -32,10 +34,12 @@ public class StudentService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
     }
 
+    @Transactional
     public StudentDto patchStudent(StudentDto studentDto, Long id) {
         Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Student with id=" + id + "not found"));

@@ -5,6 +5,7 @@ import com.custis.dto.mapper.CourseMapper;
 import com.custis.exception.NotFoundException;
 import com.custis.model.Course;
 import com.custis.repository.CourseRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ public class CourseService {
     private final CourseMapper courseMapper;
     private final CourseRepository courseRepository;
 
+    @Transactional
     public CourseDto addCourse(CourseDto courseDto) {
         if (courseDto.getIsAvailable() == null) courseDto.setIsAvailable(true);
         return courseMapper.toCourseDto(courseRepository.save(courseMapper.toCourse(courseDto)));
@@ -24,7 +26,7 @@ public class CourseService {
 
     public CourseDto getCourseById(Long id) {
         return courseMapper.toCourseDto(courseRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Course with id=" + id + "not found.")));
+                .orElseThrow(() -> new NotFoundException("Course with id=" + id + "not found")));
     }
 
     public List<CourseDto> getAllCourses() {
@@ -39,10 +41,12 @@ public class CourseService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteCourse(Long id) {
         courseRepository.deleteById(id);
     }
 
+    @Transactional
     public CourseDto patchCourse(CourseDto courseDto, Long id) {
         Course course = courseRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Course with id " + id + "not found."));

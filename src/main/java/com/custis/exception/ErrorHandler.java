@@ -15,12 +15,14 @@ public class ErrorHandler {
     @ExceptionHandler(BadRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Map<String, String> handleBadRequestException(BadRequestException e) {
+        log.error("BadRequestException: {}", e.getMessage());
         return Map.of("error", e.getMessage());
     }
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Map<String, String> handleNotFoundException(NotFoundException e) {
+        log.error("NotFoundException: {}", e.getMessage());
         return Map.of("error", e.getMessage());
     }
 }

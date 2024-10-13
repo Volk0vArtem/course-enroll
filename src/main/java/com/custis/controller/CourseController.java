@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,7 +26,7 @@ public class CourseController {
 
     @PostMapping
     public ResponseEntity<CourseDto> addCourse(@RequestBody @Valid CourseDto courseDto) {
-        return ResponseEntity.ok().body(service.addCourse(courseDto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.addCourse(courseDto));
     }
 
     @GetMapping("/{courseId}")
@@ -46,9 +45,9 @@ public class CourseController {
     }
 
     @DeleteMapping("/{courseId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteCourse(@PathVariable Long courseId) {
+    public ResponseEntity<Void> deleteCourse(@PathVariable Long courseId) {
         service.deleteCourse(courseId);
+        return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/{courseId}")
