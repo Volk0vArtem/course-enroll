@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d6f0fec-edb3-4cc5-9493-217b16fe99f0" name="Changes" comment="feat: add Dockefile and docker-compose.yml">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/custis/dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/custis/dto/StudentDto.java" afterDir="false" />
+    <list default="true" id="6d6f0fec-edb3-4cc5-9493-217b16fe99f0" name="Changes" comment="fix: exclude collections from equals and hashcode in Course and Student">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/custis/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/custis/controller/CourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/custis/service/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/custis/service/EnrollmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728460213611</updated>
       <workItem from="1728460214702" duration="33574000" />
-      <workItem from="1728838541537" duration="915000" />
+      <workItem from="1728838541537" duration="4267000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -170,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728811265168</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix: exclude collections from equals and hashcode in Course and Student">
+      <option name="closed" value="true" />
+      <created>1728839796223</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728839796223</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +216,7 @@
     <MESSAGE value="feat: add methods in student controller and service" />
     <MESSAGE value="feat: add methods in enrollment controller and service" />
     <MESSAGE value="feat: add Dockefile and docker-compose.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add Dockefile and docker-compose.yml" />
+    <MESSAGE value="fix: exclude collections from equals and hashcode in Course and Student" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: exclude collections from equals and hashcode in Course and Student" />
   </component>
 </project>

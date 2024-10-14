@@ -5,14 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.time.ZonedDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -39,12 +37,6 @@ public class Course {
     @Column(name = "is_available")
     private Boolean isAvailable;
 
-    @ManyToMany
-    @JoinTable(
-            name = "enrollments",
-            joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "student_id")
-    )
-    @EqualsAndHashCode.Exclude
-    private Set<Student> students;
+    @Transient
+    private Set<Student> students = new HashSet<>();
 }
