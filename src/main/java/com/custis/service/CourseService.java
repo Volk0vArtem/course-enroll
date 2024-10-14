@@ -31,7 +31,7 @@ public class CourseService {
 
     public CourseDto getCourseById(Long id) {
         Course course = courseRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Course with id=" + id + "not found"));
+                .orElseThrow(() -> new NotFoundException("Course with id=" + id + " not found"));
         course.setStudents(getStudentsForCourse(course.getId()));
         return courseMapper.toCourseDto(course);
     }
@@ -58,7 +58,7 @@ public class CourseService {
     @Transactional
     public CourseDto patchCourse(CourseDto courseDto, Long id) {
         Course course = courseRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Course with id " + id + "not found."));
+                .orElseThrow(() -> new NotFoundException("Course with id " + id + " not found."));
         Course patchedCourse = courseMapper.toCourse(courseDto);
 
         if (patchedCourse.getName() != null) {

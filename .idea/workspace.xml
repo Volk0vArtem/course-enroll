@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d6f0fec-edb3-4cc5-9493-217b16fe99f0" name="Changes" comment="fix: exclude collections from equals and hashcode in Course and Student">
+    <list default="true" id="6d6f0fec-edb3-4cc5-9493-217b16fe99f0" name="Changes" comment="fixes">
+      <change afterPath="$PROJECT_DIR$/course-enroll.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-test.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/custis/service/CourseServiceIntegrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/custis/service/EnrollmentServiceIntegrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/custis/service/StudentServiceIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/custis/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/custis/controller/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/custis/dto/EnrollmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/custis/dto/EnrollmentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/custis/dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/custis/dto/StudentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/custis/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/custis/service/CourseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/custis/service/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/custis/service/EnrollmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/custis/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +26,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -37,49 +46,117 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.course-enroll [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.course-enroll [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.course-enroll [package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/artem/Developer/course-enroll/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "JUnit.CourseServiceIntegrationTest.executor": "Run",
+    "JUnit.EnrollmentServiceIntegrationTest.executor": "Run",
+    "JUnit.EnrollmentServiceIntegrationTest.testAddEnrollment.executor": "Run",
+    "JUnit.EnrollmentServiceIntegrationTest.testAddEnrollmentCourseNotFound.executor": "Run",
+    "JUnit.StudentServiceIntegrationTest.executor": "Run",
+    "JUnit.service in course-enroll.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.course-enroll [clean,package].executor": "Run",
+    "Maven.course-enroll [clean].executor": "Run",
+    "Maven.course-enroll [package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/artem/Developer/course-enroll/src/test/java/com/custis/service",
+    "last_opened_file_path": "/Users/artem/Developer/course-enroll/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/postman" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.custis.service" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.custis.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.custis.exception" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.custis.App" />
+  <component name="RunManager" selected="JUnit.java in course-enroll">
+    <configuration name="EnrollmentServiceIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="course-enroll" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.custis.*" />
+          <option name="PATTERN" value="com.custis.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.custis.service" />
+      <option name="MAIN_CLASS_NAME" value="com.custis.service.EnrollmentServiceIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnrollmentServiceIntegrationTest.testAddEnrollment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-enroll" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.custis.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.custis.service" />
+      <option name="MAIN_CLASS_NAME" value="com.custis.service.EnrollmentServiceIntegrationTest" />
+      <option name="METHOD_NAME" value="testAddEnrollment" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-enroll" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.custis.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.custis.service" />
+      <option name="MAIN_CLASS_NAME" value="com.custis.service.StudentServiceIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in course-enroll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-enroll" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="service in course-enroll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="course-enroll" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/com/custis/service" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -93,7 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.java in course-enroll" />
+        <item itemvalue="JUnit.EnrollmentServiceIntegrationTest" />
+        <item itemvalue="JUnit.service in course-enroll" />
+        <item itemvalue="JUnit.StudentServiceIntegrationTest" />
+        <item itemvalue="JUnit.EnrollmentServiceIntegrationTest.testAddEnrollment" />
       </list>
     </recent_temporary>
   </component>
@@ -113,7 +194,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728460213611</updated>
       <workItem from="1728460214702" duration="33574000" />
-      <workItem from="1728838541537" duration="4267000" />
+      <workItem from="1728838541537" duration="16661000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -179,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728839796223</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fixes">
+      <option name="closed" value="true" />
+      <created>1728888763663</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1728888763663</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +306,7 @@
     <MESSAGE value="feat: add methods in enrollment controller and service" />
     <MESSAGE value="feat: add Dockefile and docker-compose.yml" />
     <MESSAGE value="fix: exclude collections from equals and hashcode in Course and Student" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: exclude collections from equals and hashcode in Course and Student" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>

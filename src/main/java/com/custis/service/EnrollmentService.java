@@ -28,9 +28,9 @@ public class EnrollmentService {
     @Transactional
     public EnrollmentDto addEnrollment(Long courseId, Long studentId) {
         Student student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new NotFoundException("Student with id=" + studentId + "not found"));
+                .orElseThrow(() -> new NotFoundException("Student with id=" + studentId + " not found"));
         Course course = courseRepository.findById(courseId)
-                .orElseThrow(() -> new NotFoundException("Course with id=" + courseId + "not found"));
+                .orElseThrow(() -> new NotFoundException("Course with id=" + courseId + " not found"));
 
         ZonedDateTime now = ZonedDateTime.now();
         if (now.isBefore(course.getStart()) || now.isAfter(course.getEnd())) {
@@ -55,9 +55,9 @@ public class EnrollmentService {
     @Transactional
     public void deleteEnrollment(Long courseId, Long studentId) {
         studentRepository.findById(studentId)
-                .orElseThrow(() -> new NotFoundException("Student with id=" + studentId + "not found"));
+                .orElseThrow(() -> new NotFoundException("Student with id=" + studentId + " not found"));
         Course course = courseRepository.findById(courseId)
-                .orElseThrow(() -> new NotFoundException("Course with id=" + courseId + "not found"));
+                .orElseThrow(() -> new NotFoundException("Course with id=" + courseId + " not found"));
         Enrollment enrollment = enrollmentRepository.findByCourseIdAndStudentId(courseId, studentId);
         if (enrollment == null) {
             throw new NotFoundException("Enrollment with courseId=" + courseId + " and studentId=" + studentId + " not found");
